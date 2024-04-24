@@ -11,16 +11,32 @@ function Input({ inputText, inputType, inputId, labelClass }) {
   );
 }
 
-function SubmitButton({ buttonText, className }) {
-  return <button className={className}>{buttonText}</button>;
+function InputSubmit({ buttonText, className }) {
+  return (
+    <div className="submitButtonContainer">
+      <input type="submit" value={buttonText} class={className} />
+    </div>
+  );
+}
+
+function SlideInput() {
+  return (
+    <div class="slideInputContainer">
+      <p className="slideInputText">On-going:</p>
+      <label class="switch" for="slider">
+        <input type="checkbox" id="slider" />
+        <div class="slider round"></div>
+      </label>
+    </div>
+  );
 }
 
 function Header({ headerName, headerClass }) {
   return (
-    <>
+    <div className="headerContainer">
       <h2 className={headerClass}>{headerName}</h2>
-      <hr />
-    </>
+      <hr className="headerLine" />
+    </div>
   );
 }
 
@@ -32,8 +48,9 @@ export default function Form() {
           <Header headerName={"Basic Info"} headerClass={"formHeader"} />
           <Input
             inputText={"First Name"}
-            inputType={"password"}
+            inputType={"text"}
             inputId={"firstName"}
+            labelClass={"formLabel"}
           />
           <Input
             inputText={"Last Name"}
@@ -47,12 +64,7 @@ export default function Form() {
             inputId={"professionalTitle"}
             labelClass={"formLabel"}
           />
-          <Input
-            inputText={"Give a short description about yourself"}
-            inputType={"text"}
-            inputId={"shortDescription"}
-            labelClass={"formLabel"}
-          />
+          <textarea placeholder="Write a short introduction about yourself"></textarea>
           <Header headerName={"Contact Info"} headerClass={"formHeader"} />
           <Input
             inputText={"Email"}
@@ -85,7 +97,7 @@ export default function Form() {
             headerClass={"formHeader"}
           />
           <Input
-            inputText={"University/Institution/Organization:"}
+            inputText={"University/Institution:"}
             inputType={"text"}
             inputId={"educationPlace"}
             labelClass={"formLabel"}
@@ -102,31 +114,14 @@ export default function Form() {
             inputId={"educationStartingYear"}
             labelClass={"formLabel"}
           />
-          <Input
-            inputText={"On-going:"}
-            inputType={"checkbox"}
-            inputId={"educationOnGoing"}
-            labelClass={"formLabel"}
-          />
+          <SlideInput />
           <Input
             inputText={"Graduating Year:"}
             inputType={"date"}
             inputId={"graduatingYear"}
             labelClass={"formLabel"}
           />
-          <Input
-            inputText={"Gpa (optional):"}
-            inputType={"number"}
-            inputId={"educationGpa"}
-            labelClass={"formLabel"}
-          />
-          <Input
-            inputText={"Additional info (ex. awards, courses, thesis project"}
-            inputType={"text"}
-            inputId={"additionalInfo"}
-            labelClass={"formLabel"}
-          />
-          <SubmitButton
+          <InputSubmit
             buttonText={"Submit education background"}
             className={"submitInput"}
           />
@@ -163,31 +158,21 @@ export default function Form() {
             inputId={"workEndYear"}
             labelClass={"formLabel"}
           />
-          <Input
-            inputText={"List your job responsibilities"}
-            inputType={"text"}
-            inputId={"additionalInfo"}
-            labelClass={"formLabel"}
-          />
-          <SubmitButton
+          <InputSubmit
             buttonText={"Submit education background"}
             className={"submitInput"}
           />
         </form>
         <form>
           <Header headerName={"Technical Skills"} headerClass={"formHeader"} />
-          <p className="formParagraph">
-            Showcase the most relevant skills applicable to the job you are
-            applying for
-          </p>
           <Input
-            inputText={"Add a skill category"}
+            inputText={"Add a skill"}
             inputType={"text"}
             inputId={"userSkill"}
             labelClass={"formLabel"}
           />
-          <SubmitButton
-            buttonText={"Submit skills info"}
+          <InputSubmit
+            buttonText={"Submit technical skills"}
             className={"submitInput"}
           />
         </form>
