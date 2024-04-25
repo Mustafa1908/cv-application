@@ -31,7 +31,7 @@ function SlideInput() {
   );
 }
 
-function Header({ headerName, headerClass }) {
+function SecondHeader({ headerName, headerClass }) {
   return (
     <div className="headerContainer">
       <h2 className={headerClass}>{headerName}</h2>
@@ -45,7 +45,7 @@ export default function Form() {
     <>
       <main>
         <form>
-          <Header headerName={"Basic Info"} headerClass={"formHeader"} />
+          <SecondHeader headerName={"Basic Info"} headerClass={"formHeader"} />
           <Input
             inputText={"First Name"}
             inputType={"text"}
@@ -65,7 +65,10 @@ export default function Form() {
             labelClass={"formLabel"}
           />
           <textarea placeholder="Write a short introduction about yourself"></textarea>
-          <Header headerName={"Contact Info"} headerClass={"formHeader"} />
+          <SecondHeader
+            headerName={"Contact Info"}
+            headerClass={"formHeader"}
+          />
           <Input
             inputText={"Email"}
             inputType={"email"}
@@ -92,7 +95,7 @@ export default function Form() {
           />
         </form>
         <form>
-          <Header
+          <SecondHeader
             headerName={"Education Background"}
             headerClass={"formHeader"}
           />
@@ -127,7 +130,10 @@ export default function Form() {
           />
         </form>
         <form>
-          <Header headerName={"Work Experience"} headerClass={"formHeader"} />
+          <SecondHeader
+            headerName={"Work Experience"}
+            headerClass={"formHeader"}
+          />
           <Input
             inputText={"Title/Position:"}
             inputType={"text"}
@@ -164,7 +170,10 @@ export default function Form() {
           />
         </form>
         <form>
-          <Header headerName={"Technical Skills"} headerClass={"formHeader"} />
+          <SecondHeader
+            headerName={"Technical Skills"}
+            headerClass={"formHeader"}
+          />
           <Input
             inputText={"Add a skill"}
             inputType={"text"}
