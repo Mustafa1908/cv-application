@@ -1,0 +1,131 @@
+:root {
+  --step--2: clamp(0.7813rem, 0.7759rem + 0.0268vi, 0.8rem);
+  --step--1: clamp(0.9375rem, 0.9196rem + 0.0893vi, 1rem);
+  --step-0: clamp(1.125rem, 1.0893rem + 0.1786vi, 1.25rem);
+  --step-1: clamp(1.35rem, 1.2893rem + 0.3036vi, 1.5625rem);
+  --step-2: clamp(1.62rem, 1.5248rem + 0.4759vi, 1.9531rem);
+  --step-3: clamp(1.944rem, 1.8019rem + 0.7106vi, 2.4414rem);
+  --step-4: clamp(2.3328rem, 2.1274rem + 1.0271vi, 3.0518rem);
+  --step-5: clamp(2.7994rem, 2.5093rem + 1.4505vi, 3.8147rem);
+  --headerForm: #334155;
+  --inputTextArea: rgb(90, 90, 90);
+  --darkBlue: #145079;
+}
+
+.cvContainer {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  min-width: 100%;
+  min-height: 34rem;
+}
+
+.leftSideContainer {
+  min-width: 60%;
+}
+
+.basicInfoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-height: 52%;
+}
+
+.userNameHeader {
+  font-size: var(--step-2);
+  color: #075985;
+}
+
+.userJobHeader {
+  font-size: var(--step-1);
+  color: #0e7490;
+}
+
+.presentationText {
+  padding-top: 1rem;
+  font-size: var(--step--2);
+  max-width: 95%;
+}
+
+.cvSmallText {
+  padding-top: 1rem;
+  font-size: var(--step--2);
+}
+
+ul {
+  padding-left: 1.2rem;
+}
+
+.cvHeader {
+  font-size: var(--step-0);
+  padding-left: 0.4rem;
+  color: var(--darkBlue);
+}
+
+.skillHeaderLine {
+  border: 1px solid var(--darkBlue);
+  max-width: 92%;
+}
+
+.headerLine {
+  border: 1px solid var(--darkBlue);
+  max-width: 96%;
+}
+
+.jobPlaceJobText {
+  font-size: var(--step-0);
+}
+
+.resultCompagnyText {
+  font-size: var(--step--1);
+}
+
+.durationText {
+  font-size: var(--step--2);
+  padding-right: 0.7rem;
+}
+
+.rightSideContainer {
+  min-width: 40%;
+}
+
+.contactInfoContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 52%;
+  padding-top: 3rem;
+}
+
+.contactContainer {
+  display: flex;
+  word-wrap: break-word;
+}
+
+.material-symbols-outlined {
+  font-size: var(--step-0);
+  color: var(--darkBlue);
+}
+
+.iconText {
+  font-size: var(--step--2);
+  max-width: 74%;
+  min-height: 3rem;
+  padding-left: 0.4rem;
+}
+
+.listItemContainer {
+  display: flex;
+}
+
+.educationContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.skillContainer {
+  padding-left: 1.2rem;
+}
+
+.skillText {
+  font-size: var(--step--0);
+}
