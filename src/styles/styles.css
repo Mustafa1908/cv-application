@@ -23,7 +23,12 @@ h3 {
 }
 
 .leftSidePage {
-  border: 3px solid blue;
   max-width: 110rem;
   min-height: 30rem;
+}
+
+.rightSidePage {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
 }
