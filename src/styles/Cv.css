@@ -16,8 +16,7 @@
   display: flex;
   justify-content: center;
   background-color: white;
-  min-width: 100%;
-  min-height: 34rem;
+  max-width: 100%;
 }
 
 .leftSideContainer {
@@ -28,7 +27,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
-  min-height: 52%;
+  min-height: 20rem;
 }
 
 .userNameHeader {
@@ -86,14 +85,14 @@ ul {
 }
 
 .rightSideContainer {
-  min-width: 40%;
+  max-width: 40%;
 }
 
 .contactInfoContainer {
   display: flex;
   flex-direction: column;
-  min-height: 52%;
   padding-top: 3rem;
+  min-height: 20rem;
 }
 
 .contactContainer {
@@ -128,4 +127,10 @@ ul {
 
 .skillText {
   font-size: var(--step--0);
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 1024px) {
 }
