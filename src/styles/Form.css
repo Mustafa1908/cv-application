@@ -67,7 +67,8 @@ form input:focus {
   display: none;
 }
 
-.slider {
+.educationSlider,
+.workSlider {
   background-color: #ccc;
   bottom: 0;
   cursor: pointer;
@@ -78,30 +79,35 @@ form input:focus {
   transition: 0.4s;
 }
 
-.slider:before {
+.educationSlider:before,
+.workSlider:before {
   background-color: #fff;
   bottom: 4px;
   content: "";
   height: 26px;
   left: 4px;
   position: absolute;
-  transition: 0.4s;
+  transition: 0.28s;
   width: 26px;
 }
 
-input:checked + .slider {
+input:checked + .educationSlider,
+input:checked + .workSlider {
   background-color: #7e22ce;
 }
 
-input:checked + .slider:before {
+input:checked + .educationSlider:before,
+input:checked + .workSlider:before {
   transform: translateX(26px);
 }
 
-.slider.round {
+.educationSlider.round,
+.workSlider.round {
   border-radius: 34px;
 }
 
-.slider.round:before {
+.educationSlider.round:before,
+.workSlider.round:before {
   border-radius: 50%;
 }
 
@@ -129,8 +135,8 @@ textarea {
 }
 
 .headerLine {
-  border: 1px solid var(--headerForm);
-  min-width: 80%;
+  border-color: var(--headerForm);
+  min-width: 100%;
 }
 
 .formLabel {
@@ -139,13 +145,8 @@ textarea {
   min-width: 80%;
 }
 
-#shortDescription {
-  min-height: rem;
-}
-
 .submitButtonContainer {
   display: flex;
-  justify-content: ;
   align-items: flex-start;
   min-width: 80%;
 }
@@ -155,7 +156,7 @@ textarea {
   background-color: #1e40af;
   border-color: var(--inputTextArea);
   color: white;
-  min-width: 13rem;
+  min-width: 14rem;
   min-height: 3rem;
   border-radius: 0.6rem;
   margin-top: 0.5rem;

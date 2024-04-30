@@ -17,6 +17,7 @@
   justify-content: center;
   background-color: white;
   max-width: 100%;
+  min-height: 62rem;
 }
 
 .leftSideContainer {
@@ -33,17 +34,20 @@
 .userNameHeader {
   font-size: var(--step-2);
   color: #075985;
+  padding-left: 1rem;
 }
 
 .userJobHeader {
   font-size: var(--step-1);
   color: #0e7490;
+  padding-left: 1rem;
 }
 
 .presentationText {
   padding-top: 1rem;
   font-size: var(--step--2);
   max-width: 95%;
+  padding-left: 1rem;
 }
 
 .cvSmallText {
@@ -53,17 +57,22 @@
 
 ul {
   padding-left: 1.2rem;
+  max-width: 95%;
+  list-style: disc;
+}
+
+.headerContainer {
+  max-width: 92%;
 }
 
 .cvHeader {
-  font-size: var(--step-0);
-  padding-left: 0.4rem;
+  font-size: var(--step--1);
   color: var(--darkBlue);
+  padding-left: 1.4rem;
 }
 
 .skillHeaderLine {
   border: 1px solid var(--darkBlue);
-  max-width: 92%;
 }
 
 .headerLine {
@@ -73,15 +82,17 @@ ul {
 
 .jobPlaceJobText {
   font-size: var(--step-0);
+  min-width: 8rem;
 }
 
 .resultCompagnyText {
   font-size: var(--step--1);
+  max-width: 10rem;
 }
 
 .durationText {
   font-size: var(--step--2);
-  padding-right: 0.7rem;
+  width: 100%;
 }
 
 .rightSideContainer {
@@ -107,7 +118,7 @@ ul {
 
 .iconText {
   font-size: var(--step--2);
-  max-width: 74%;
+  max-width: 80%;
   min-height: 3rem;
   padding-left: 0.4rem;
 }
@@ -119,18 +130,73 @@ ul {
 .educationContainer {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .skillContainer {
-  padding-left: 1.2rem;
+  padding-left: 0.6rem;
+  margin-left: 0.5rem;
 }
 
 .skillText {
-  font-size: var(--step--0);
+  font-size: var(--step-0);
+  padding-left: 0.4rem;
+}
+
+@media (min-width: 622px) {
+  .cvContainer {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    max-width: 80%;
+    max-height: 48rem;
+  }
 }
 
 @media (min-width: 768px) {
+  .cvContainer {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    max-width: 77%;
+    max-height: 48rem;
+  }
 }
 
 @media (min-width: 1024px) {
+  .cvContainer {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    margin-bottom: 20rem;
+    width: 99%;
+    max-height: 48rem;
+  }
+
+  .iconText {
+    font-size: var(--step--2);
+    max-width: 74%;
+    min-height: 3rem;
+    padding-left: 0.4rem;
+    min-width: 80%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .cvContainer {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    margin-bottom: 20rem;
+    width: 65%;
+    max-height: 48rem;
+  }
+
+  .iconText {
+    font-size: var(--step--2);
+    max-width: 74%;
+    min-height: 3rem;
+    padding-left: 0.4rem;
+    min-width: 80%;
+  }
 }
