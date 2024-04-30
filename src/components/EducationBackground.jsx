@@ -1,10 +1,15 @@
-function Input({ inputText, inputType, inputId, labelClass }) {
+function Input({ inputText, inputType, inputId, labelClass, placeHolderText }) {
   return (
     <>
       <label className={labelClass} htmlFor={inputId}>
         {inputText}
       </label>
-      <input type={inputType} name={inputId} id={inputId} />
+      <input
+        type={inputType}
+        name={inputId}
+        id={inputId}
+        placeholder={placeHolderText}
+      />
     </>
   );
 }
@@ -50,12 +55,14 @@ export default function EducationBackground() {
         inputType={"text"}
         inputId={"educationPlace"}
         labelClass={"formLabel"}
+        placeHolderText={"University of London"}
       />
       <Input
         inputText={"Program/Degree/Course:"}
         inputType={"text"}
         inputId={"educationProgram"}
         labelClass={"formLabel"}
+        placeHolderText={"Ph.D in Philosophy"}
       />
       <Input
         inputText={"Starting Year:"}

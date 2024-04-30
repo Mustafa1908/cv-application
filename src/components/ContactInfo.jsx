@@ -1,10 +1,15 @@
-function Input({ inputText, inputType, inputId, labelClass }) {
+function Input({ inputText, inputType, inputId, labelClass, placeHolderText }) {
   return (
     <>
       <label className={labelClass} htmlFor={inputId}>
         {inputText}
       </label>
-      <input type={inputType} name={inputId} id={inputId} />
+      <input
+        type={inputType}
+        name={inputId}
+        id={inputId}
+        placeholder={placeHolderText}
+      />
     </>
   );
 }
@@ -27,24 +32,28 @@ export default function ContactInfo() {
         inputType={"email"}
         inputId={"userEmail"}
         labelClass={"formLabel"}
+        placeHolderText={"mustafaexample@mail.com"}
       />
       <Input
         inputText={"Phone Number"}
         inputType={"tel"}
         inputId={"userPhoneNumber"}
         labelClass={"formLabel"}
+        placeHolderText={"0486 93 41 32"}
       />
       <Input
         inputText={"Location"}
         inputType={"text"}
         inputId={"userLocation"}
         labelClass={"formLabel"}
+        placeHolderText={"Belgium, Brussels"}
       />
       <Input
         inputText={"Website"}
         inputType={"url"}
         inputId={"userWebsite"}
         labelClass={"formLabel"}
+        placeHolderText={"https://linkedin/mustafaozkara.com"}
       />
     </>
   );

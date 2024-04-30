@@ -1,10 +1,15 @@
-function Input({ inputText, inputType, inputId, labelClass }) {
+function Input({ inputText, inputType, inputId, labelClass, placeHolderText }) {
   return (
     <>
       <label className={labelClass} htmlFor={inputId}>
         {inputText}
       </label>
-      <input type={inputType} name={inputId} id={inputId} />
+      <input
+        type={inputType}
+        name={inputId}
+        id={inputId}
+        placeholder={placeHolderText}
+      />
     </>
   );
 }
@@ -38,6 +43,7 @@ export default function TechnicalSkills() {
         inputType={"text"}
         inputId={"userSkill"}
         labelClass={"formLabel"}
+        placeHolderText={"Html"}
       />
       <InputSubmit
         buttonText={"Submit technical skills"}

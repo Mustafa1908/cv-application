@@ -1,10 +1,15 @@
-function Input({ inputText, inputType, inputId, labelClass }) {
+function Input({ inputText, inputType, inputId, labelClass, placeHolderText }) {
   return (
     <>
       <label className={labelClass} htmlFor={inputId}>
         {inputText}
       </label>
-      <input type={inputType} name={inputId} id={inputId} />
+      <input
+        type={inputType}
+        name={inputId}
+        id={inputId}
+        placeholder={placeHolderText}
+      />
     </>
   );
 }
@@ -47,12 +52,14 @@ export default function WorkExperience() {
         inputType={"text"}
         inputId={"jobName"}
         labelClass={"formLabel"}
+        placeHolderText={"Business Analyst"}
       />
       <Input
         inputText={"Workplace/Company/Organization:"}
         inputType={"text"}
         inputId={"placeOfWork"}
         labelClass={"formLabel"}
+        placeHolderText={"Company Inc."}
       />
       <Input
         inputText={"Starting Year:"}

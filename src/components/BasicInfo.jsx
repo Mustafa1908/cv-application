@@ -1,10 +1,15 @@
-function Input({ inputText, inputType, inputId, labelClass }) {
+function Input({ inputText, inputType, inputId, labelClass, placeHolderText }) {
   return (
     <>
       <label className={labelClass} htmlFor={inputId}>
         {inputText}
       </label>
-      <input type={inputType} name={inputId} id={inputId} />
+      <input
+        type={inputType}
+        name={inputId}
+        id={inputId}
+        placeholder={placeHolderText}
+      />
     </>
   );
 }
@@ -27,18 +32,21 @@ export default function BasicInfo() {
         inputType={"text"}
         inputId={"firstName"}
         labelClass={"formLabel"}
+        placeHolderText={"Mustafa"}
       />
       <Input
         inputText={"Last Name"}
         inputType={"text"}
         inputId={"secondName"}
         labelClass={"formLabel"}
+        placeHolderText={"Özkara"}
       />
       <Input
         inputText={"Professional Title"}
         inputType={"text"}
         inputId={"professionalTitle"}
         labelClass={"formLabel"}
+        placeHolderText={"Web Developer"}
       />
       <textarea placeholder="Write a short introduction about yourself"></textarea>
     </>
