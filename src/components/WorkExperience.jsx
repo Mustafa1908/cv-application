@@ -18,13 +18,13 @@ function SecondHeader({ headerName, headerClass }) {
   );
 }
 
-function SlideInput() {
+function SlideInput({ slideId }) {
   return (
     <div class="slideInputContainer">
       <p className="slideInputText">On-going:</p>
-      <label class="switch" for="slider">
-        <input type="checkbox" id="slider" />
-        <div class="slider round"></div>
+      <label class="switch" for={slideId}>
+        <input type="checkbox" id={slideId} />
+        <div class={slideId + " round"}></div>
       </label>
     </div>
   );
@@ -60,7 +60,7 @@ export default function WorkExperience() {
         inputId={"startingYear"}
         labelClass={"formLabel"}
       />
-      <SlideInput />
+      <SlideInput slideId={"workSlider"} />
       <Input
         inputText={"End Year:"}
         inputType={"date"}

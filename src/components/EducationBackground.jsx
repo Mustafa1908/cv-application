@@ -18,13 +18,13 @@ function SecondHeader({ headerName, headerClass }) {
   );
 }
 
-function SlideInput() {
+function SlideInput({ slideId }) {
   return (
     <div class="slideInputContainer">
       <p className="slideInputText">On-going:</p>
-      <label class="switch" for="slider">
-        <input type="checkbox" id="slider" />
-        <div class="slider round"></div>
+      <label class="switch" for={slideId}>
+        <input type="checkbox" id={slideId} />
+        <div class={slideId + " round"}></div>
       </label>
     </div>
   );
@@ -63,7 +63,7 @@ export default function EducationBackground() {
         inputId={"educationStartingYear"}
         labelClass={"formLabel"}
       />
-      <SlideInput />
+      <SlideInput slideId={"educationSlider"} />
       <Input
         inputText={"Graduating Year:"}
         inputType={"date"}
