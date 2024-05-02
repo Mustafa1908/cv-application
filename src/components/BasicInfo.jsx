@@ -1,4 +1,14 @@
-function Input({ inputText, inputType, inputId, labelClass, placeHolderText }) {
+import { useState } from "react";
+
+function Input({
+  inputText,
+  inputType,
+  inputId,
+  placeHolderText,
+  labelClass,
+  currentValue,
+  onChangeFunction,
+}) {
   return (
     <>
       <label className={labelClass} htmlFor={inputId}>
@@ -9,6 +19,8 @@ function Input({ inputText, inputType, inputId, labelClass, placeHolderText }) {
         name={inputId}
         id={inputId}
         placeholder={placeHolderText}
+        value={currentValue}
+        onChange={onChangeFunction}
       />
     </>
   );
@@ -24,6 +36,46 @@ function SecondHeader({ headerName, headerClass }) {
 }
 
 export default function BasicInfo() {
+  const [firstName, setFirstName] = useState("Mustafa");
+  const [lastName, setLastName] = useState("Özkara");
+  const [jobTitle, setJobTitle] = useState("Web Developer");
+  const [shortIntroduction, setShortIntroduction] = useState(
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium corporis eligendi quos natus consectetur sint eum nobis dolore neque  error reiciendis explicabo ex minima quae fugit, corrupti, temporibus soluta blanditiiserror reiciendis explicabo ex minima quae fugit, corrupti, temporibus soluta blanditiiserror reiciendis"
+  );
+
+  let userFullName = document.querySelector(".userNameHeader");
+  let userJobTitle = document.querySelector(".userJobHeader");
+  let shortIntroductionText = document.querySelector(".presentationText");
+
+  if (userFullName !== null) {
+    userFullName.innerText = firstName + " " + lastName;
+  }
+
+  if (userJobTitle !== null) {
+    userJobTitle.innerText = jobTitle;
+  }
+
+  if (shortIntroductionText !== null) {
+    console.log(shortIntroduction);
+    shortIntroductionText.innerText = shortIntroduction;
+  }
+
+  function handleFirstNameChange(e) {
+    setFirstName(e.target.value);
+  }
+
+  function handleLastNameChange(e) {
+    setLastName(e.target.value);
+  }
+
+  function handleJobTitleChange(e) {
+    setJobTitle(e.target.value);
+  }
+
+  function handleShortIntroductionChange(e) {
+    setShortIntroduction(e.target.value);
+  }
+
   return (
     <>
       <SecondHeader headerName={"Basic Info"} headerClass={"formHeader"} />
@@ -33,6 +85,8 @@ export default function BasicInfo() {
         inputId={"firstName"}
         labelClass={"formLabel"}
         placeHolderText={"Mustafa"}
+        currentValue={firstName}
+        onChangeFunction={handleFirstNameChange}
       />
       <Input
         inputText={"Last Name"}
@@ -40,6 +94,8 @@ export default function BasicInfo() {
         inputId={"secondName"}
         labelClass={"formLabel"}
         placeHolderText={"Özkara"}
+        currentValue={lastName}
+        onChangeFunction={handleLastNameChange}
       />
       <Input
         inputText={"Professional Title"}
@@ -47,8 +103,15 @@ export default function BasicInfo() {
         inputId={"professionalTitle"}
         labelClass={"formLabel"}
         placeHolderText={"Web Developer"}
+        currentValue={jobTitle}
+        onChangeFunction={handleJobTitleChange}
       />
-      <textarea placeholder="Write a short introduction about yourself"></textarea>
+      <textarea
+        placeholder="Write a short introduction about yourself"
+        onChange={handleShortIntroductionChange}
+      >
+        {shortIntroduction}
+      </textarea>
     </>
   );
 }
