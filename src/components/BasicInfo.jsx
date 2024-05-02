@@ -8,6 +8,7 @@ function Input({
   labelClass,
   currentValue,
   onChangeFunction,
+  maxCharacters,
 }) {
   return (
     <>
@@ -15,6 +16,7 @@ function Input({
         {inputText}
       </label>
       <input
+        maxLength={maxCharacters}
         type={inputType}
         name={inputId}
         id={inputId}
@@ -87,6 +89,7 @@ export default function BasicInfo() {
         placeHolderText={"Mustafa"}
         currentValue={firstName}
         onChangeFunction={handleFirstNameChange}
+        maxCharacters={22}
       />
       <Input
         inputText={"Last Name"}
@@ -96,6 +99,7 @@ export default function BasicInfo() {
         placeHolderText={"Özkara"}
         currentValue={lastName}
         onChangeFunction={handleLastNameChange}
+        maxCharacters={22}
       />
       <Input
         inputText={"Professional Title"}
@@ -105,8 +109,10 @@ export default function BasicInfo() {
         placeHolderText={"Web Developer"}
         currentValue={jobTitle}
         onChangeFunction={handleJobTitleChange}
+        maxCharacters={22}
       />
       <textarea
+        maxLength={566}
         placeholder="Write a short introduction about yourself"
         onChange={handleShortIntroductionChange}
       >
