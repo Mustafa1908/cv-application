@@ -18,24 +18,6 @@ function App() {
   return (
     <>
       <div className="pageContainer">
-        <div className="leftSidePage">
-          <Header />
-          <main>
-            <form>
-              <BasicInfo />
-              <ContactInfo />
-            </form>
-            <form>
-              <EducationBackground />
-            </form>
-            <form>
-              <WorkExperience />
-            </form>
-            <form>
-              <TechnicalSkills />
-            </form>
-          </main>
-        </div>
         <div className="rightSidePage">
           <section className="cvContainer">
             <div className="leftSideContainer">
@@ -58,6 +40,24 @@ function App() {
               </section>
             </div>
           </section>
+        </div>
+        <div className="leftSidePage">
+          <Header />
+          <main>
+            <form>
+              <BasicInfo />
+              <ContactInfo />
+            </form>
+            <form>
+              <EducationBackground />
+            </form>
+            <form>
+              <WorkExperience />
+            </form>
+            <form>
+              <TechnicalSkills />
+            </form>
+          </main>
         </div>
       </div>
     </>
