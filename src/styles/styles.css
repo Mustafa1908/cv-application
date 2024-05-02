@@ -20,6 +20,7 @@ h3 {
 .pageContainer {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column-reverse;
   max-width: 100%;
   height: 100%;
 }
@@ -59,19 +60,25 @@ h3 {
 @media (min-width: 1024px) {
   .pageContainer {
     display: flex;
+    flex-direction: row-reverse;
     max-width: 100%;
-    height: 100%;
+    height: 40%;
   }
 
   .leftSidePage {
     max-width: 43%;
-    min-height: 30rem;
+    max-height: 64rem;
+    overflow: scroll;
+    overflow-x: hidden;
+    scrollbar-color: #475569;
+    scrollbar-width: thin;
   }
 
   .rightSidePage {
     display: flex;
     justify-content: center;
     max-width: 57%;
+    max-height: 64rem;
     background-color: #d4d4d8;
   }
 
