@@ -1,132 +1,149 @@
 import { useState } from "react";
-
 function Input({ inputText, inputType, inputId, labelClass, placeHolderText }) {
   return (
     <>
+      {" "}
       <label className={labelClass} htmlFor={inputId}>
-        {inputText}
-      </label>
+        {" "}
+        {inputText}{" "}
+      </label>{" "}
       <input
         type={inputType}
         name={inputId}
         id={inputId}
         placeholder={placeHolderText}
         required
-      />
+      />{" "}
     </>
   );
 }
-
 function SecondHeader({ headerName, headerClass }) {
   return (
     <div className="headerContainer">
-      <h2 className={headerClass}>{headerName}</h2>
-      <hr className="headerLine" />
+      {" "}
+      <h2 className={headerClass}>{headerName}</h2>{" "}
+      <hr className="headerLine" />{" "}
     </div>
   );
 }
-
-function SimpleListItem({ listItemText, listItemClass }) {
-  return <li className={listItemClass}>{listItemText}</li>;
-}
-
 function InputSubmit({ buttonText, className, onChangeFunction }) {
   return (
     <div className="submitButtonContainer">
+      {" "}
       <input
         type="submit"
         value={buttonText}
         class={className}
         onClick={onChangeFunction}
-      />
-    </div>
-  );
-}
-
-function EditDeleteItem({
-  itemContainerClass,
-  itemText,
-  itemTextClass,
-  iconsContainerClass,
-  editiconClass,
-  deleteIconClass,
-}) {
-  return (
-    <div className={itemContainerClass}>
-      <p className={itemTextClass}>{itemText}</p>
-      <div className={iconsContainerClass}>
-        <span class={"material-symbols-outlined " + editiconClass}>delete</span>
-        <span class={"material-symbols-outlined " + deleteIconClass}>edit</span>
-      </div>
+      />{" "}
     </div>
   );
 }
 
 export default function TechnicalSkills() {
   const [inputValue, setInputValue] = useState([]);
+  const [editState, setEditState] = useState([false]);
+
+  const deleteByIndex = (index) => {
+    setInputValue((oldValues) => {
+      return oldValues.filter((_, i) => i !== index);
+    });
+  };
 
   if (inputValue.length >= 1) {
-    let skillDeleteEditContainer = document.querySelector(
-      ".skillDeleteEditContainer"
-    );
     let skillContainer = document.querySelector(".skillContainer");
-
     skillContainer.innerHTML = "";
-    skillDeleteEditContainer.innerHTML = "";
-
     for (let i = 0; i < inputValue.length; i++) {
       let newSkillItem = document.createElement("li");
-      let editDeleteItem = document.createElement("div");
-
-      editDeleteItem.className = "skillModifyContainer";
-      editDeleteItem.innerHTML = `<p class="skillModifyText">${inputValue[i]}</p><div class="editDeleteContainer"><span class="material-symbols-outlined skillModifyIcon">delete</span><span class="material-symbols-outlined skillDeleteIcon">edit</span></div>`;
-
       newSkillItem.className = "skillText";
       newSkillItem.innerText = inputValue[i];
 
-      skillDeleteEditContainer.appendChild(editDeleteItem);
       skillContainer.appendChild(newSkillItem);
     }
   }
 
   function handleInputValuechange(e) {
     e.preventDefault();
-
     let skillValue = document.querySelector("#userSkill");
-
     let skillValueArray = [skillValue.value];
+    if (skillValue.value === "") {
+      return;
+    }
+
+    console.log(editState);
+    if (editState[0] == true) {
+      inputValue[editState[1]] = skillValue.value;
+      handleEditState([false]);
+      skillValue.placeholder = "Html";
+      skillValue.value = "";
+      return;
+    }
     setInputValue(inputValue.concat(skillValueArray));
     skillValue.value = "";
   }
+  function handleEditState(trueFalse) {
+    setEditState(trueFalse);
+  }
+
+  document.addEventListener("click", function editInputValueItem(e) {
+    const target = e.target.closest(".skillModifyIcon");
+    if (target) {
+      if (editState[0] === true) {
+        return;
+      }
+      let skillIndex = target.getAttribute("dataset");
+      console.log(skillIndex);
+      let skillText = target.getAttribute("dataset-index");
+      let skillInputField = document.querySelector("#userSkill");
+      skillInputField.value = skillText;
+      handleEditState([true, skillIndex]);
+      document.removeEventListener("click", editInputValueItem);
+    }
+  });
 
   return (
     <>
+      {" "}
       <SecondHeader
         headerName={"Technical Skills"}
         headerClass={"formHeader"}
-      />
+      />{" "}
       <div className="skillDeleteEditContainer">
-        <EditDeleteItem
-          itemContainerClass={"skillModifyContainer"}
-          itemText={"Html"}
-          itemTextClass={"skillModifyText"}
-          iconsContainerClass={"editDeleteContainer"}
-          editiconClass={"skillModifyIcon"}
-          deleteIconClass={"skillDeleteIcon"}
-        />
-      </div>
+        {inputValue.map((inputText, index) => {
+          return (
+            <div class="skillModifyContainer" key={inputText}>
+              <p class="skillModifyText">{inputText}</p>
+              <div class="editDeleteContainer">
+                <span
+                  class="material-symbols-outlined skillModifyIcon"
+                  dataset={index}
+                  dataset-index={inputValue[index]}
+                >
+                  edit
+                </span>
+                <span
+                  class="material-symbols-outlined skillDeleteIcon"
+                  onClick={() => deleteByIndex(index)}
+                >
+                  delete
+                </span>
+              </div>
+            </div>
+          );
+        })}
+      </div>{" "}
       <Input
         inputText={"Add a skill"}
         inputType={"text"}
         inputId={"userSkill"}
         labelClass={"formLabel"}
         placeHolderText={"Html"}
-      />
+      />{" "}
       <InputSubmit
         buttonText={"Submit technical skills"}
         className={"submitInput submitSkill"}
         onChangeFunction={handleInputValuechange}
-      />
+      />{" "}
     </>
   );
 }
