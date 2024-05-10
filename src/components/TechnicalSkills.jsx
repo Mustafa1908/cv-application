@@ -41,16 +41,23 @@ function InputSubmit({ buttonText, className, onChangeFunction }) {
 }
 
 export default function TechnicalSkills() {
-  const [inputValue, setInputValue] = useState([]);
+  const [inputValue, setInputValue] = useState([
+    "Html",
+    "Css",
+    "Javascript",
+    "React",
+  ]);
   const [editState, setEditState] = useState([false]);
+  const [renderCondition, setRenderCondition] = useState(5);
 
   const deleteByIndex = (index) => {
+    setRenderCondition(0);
     setInputValue((oldValues) => {
       return oldValues.filter((_, i) => i !== index);
     });
   };
-
-  if (inputValue.length >= 1) {
+  console.log(renderCondition);
+  if (inputValue.length >= renderCondition) {
     let skillContainer = document.querySelector(".skillContainer");
     skillContainer.innerHTML = "";
     for (let i = 0; i < inputValue.length; i++) {
@@ -70,7 +77,6 @@ export default function TechnicalSkills() {
       return;
     }
 
-    console.log(editState);
     if (editState[0] == true) {
       inputValue[editState[1]] = skillValue.value;
       handleEditState([false]);
@@ -79,10 +85,16 @@ export default function TechnicalSkills() {
       return;
     }
     setInputValue(inputValue.concat(skillValueArray));
+    setRenderCondition(0);
     skillValue.value = "";
   }
+
   function handleEditState(trueFalse) {
     setEditState(trueFalse);
+  }
+
+  function handleRenderState(newCondition) {
+    setRenderCondition(newCondition);
   }
 
   document.addEventListener("click", function editInputValueItem(e) {
@@ -91,11 +103,12 @@ export default function TechnicalSkills() {
       if (editState[0] === true) {
         return;
       }
+
       let skillIndex = target.getAttribute("dataset");
-      console.log(skillIndex);
       let skillText = target.getAttribute("dataset-index");
       let skillInputField = document.querySelector("#userSkill");
       skillInputField.value = skillText;
+      setRenderCondition(0);
       handleEditState([true, skillIndex]);
       document.removeEventListener("click", editInputValueItem);
     }
