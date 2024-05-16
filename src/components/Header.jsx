@@ -8,7 +8,7 @@ export default function Header() {
       <header>
         <div className="headerPrintContainer">
           <h1 className="header">cv generator</h1>
-          <div onClick={printCvPage}>
+          <div onClick={printCvPage} tabIndex={0}>
             <span class="material-symbols-outlined printCvIcon">print</span>
           </div>
         </div>
