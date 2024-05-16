@@ -9,11 +9,25 @@
   --step-5: clamp(2.7994rem, 2.5093rem + 1.4505vi, 3.8147rem);
 }
 
+.headerPrintContainer {
+  display: flex;
+  gap: 1rem;
+  min-width: 80%;
+}
+
 header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.printCvIcon {
+  font-size: 35px;
+}
+
+.printCvIcon:hover {
+  cursor: pointer;
 }
 
 .pagePresentationHeader {
