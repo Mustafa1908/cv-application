@@ -18,7 +18,6 @@ function Input({
         name={inputId}
         id={inputId}
         placeholder={placeHolderText}
-        required
       />
     </>
   );
@@ -63,10 +62,10 @@ export default function WorkExperience() {
     [
       "University of London",
       "Ph.D in Philosophy",
-      "Nov 2010",
-      "Dec 2015",
-      "2010-11",
-      "2015-12",
+      "Apr 2010",
+      "Aug 2015",
+      "2010-04",
+      "2015-08",
     ],
   ]);
   const [educationEditText, setEducationEditText] = useState([
@@ -75,8 +74,6 @@ export default function WorkExperience() {
   const [editWorkState, setEditWorkState] = useState([false]);
   const [educationInputHide, setEducationInputHide] = useState(false);
   const [workRenderCondition, setWorkRenderCondition] = useState(2);
-
-  console.log(educationArray);
 
   const deleteByIndex = (index) => {
     setWorkRenderCondition(0);
@@ -167,6 +164,7 @@ export default function WorkExperience() {
       "Aug",
       "Sep",
       "Oct",
+      "Nov",
       "Dec",
     ];
     let educationPlace = document.querySelector("#educationPlace");
@@ -192,12 +190,13 @@ export default function WorkExperience() {
       " " +
       graduatingYear.value.slice(0, 4);
 
-    if (educationStartingYear.value.slice(6, 7) >= 10) {
+    if (educationStartingYear.value.slice(5, 7) >= 10) {
       formatedEducationStartingYear =
         monthNames[educationStartingYear.value.slice(5, 7) - 1] +
         " " +
         educationStartingYear.value.slice(0, 4);
-    } else if (graduatingYear.value.slice(6, 7) >= 10) {
+    }
+    if (graduatingYear.value.slice(5, 7) >= 10) {
       formatedGraduatingYear =
         monthNames[graduatingYear.value.slice(5, 7) - 1] +
         " " +
@@ -205,7 +204,6 @@ export default function WorkExperience() {
     }
 
     let graduatingYearValue = graduatingYear.value;
-    console.log(graduatingYearValue.length);
     if (graduatingYearValue.length === 0) {
       graduatingYearValue = "to today";
     }
@@ -226,17 +224,16 @@ export default function WorkExperience() {
     if (editWorkState[0] == true) {
       editWorkArray(
         editWorkState[1],
-        educationPlace.value,
+        educationPlace.value + " ",
         educationProgram.value,
         formatedEducationStartingYear,
         formatedGraduatingYear,
         educationStartingYear.value,
-        graduatingYear.value
+        graduatingYearValue
       );
 
       handleEditWorkState([false]);
-      let skillInput = document.querySelector("#userSkill");
-      skillInput.value = "";
+
       educationPlace.value = "";
       educationProgram.value = "";
       return;
@@ -250,6 +247,7 @@ export default function WorkExperience() {
       ...educationEditText,
       educationEditTextArray,
     ]);
+
     educationPlace.value = "";
     educationProgram.value = "";
     educationStartingYear.value = "";
@@ -283,8 +281,8 @@ export default function WorkExperience() {
     setEditWorkState(trueFalse);
   }
 
-  document.addEventListener("click", function editeducationArrayItem(e) {
-    const target = e.target.closest(".skillModifyIcon");
+  document.addEventListener("click", function editEducationArrayItem(e) {
+    const target = e.target.closest(".educationModifyIcon");
     if (target) {
       if (editWorkState[0] === true) {
         return;
@@ -303,12 +301,9 @@ export default function WorkExperience() {
       educationStartingYear.value = educationArray[educationIndex][4];
       graduatingYear.value = educationArray[educationIndex][5];
 
-      let skillInput = document.querySelector("#userSkill");
-      skillInput.value = "";
-
       setWorkRenderCondition(0);
       handleEditWorkState([true, educationIndex]);
-      document.removeEventListener("click", editeducationArrayItem);
+      document.removeEventListener("click", editEducationArrayItem);
     }
   });
 
@@ -325,15 +320,17 @@ export default function WorkExperience() {
               <p class="skillModifyText">{educationText}</p>
               <div class="editDeleteContainer">
                 <span
-                  class="material-symbols-outlined skillModifyIcon"
+                  class="material-symbols-outlined editIcon educationModifyIcon"
                   dataset={index}
                   dataset-index={educationArray[index]}
+                  tabindex={0}
                 >
                   edit
                 </span>
                 <span
                   class="material-symbols-outlined skillDeleteIcon"
                   onClick={() => deleteByIndex(index)}
+                  tabindex={0}
                 >
                   delete
                 </span>
