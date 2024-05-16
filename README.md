@@ -2,7 +2,8 @@
 A Cv Application that allow you to build a personal cv and print it when you've finished it.
 You can also edit and delete the things you added to your Cv.
 </br></br><b>Live Preview: https://cv-application-dusky-theta.vercel.app/</b>
-</br></br><img src="https://github.com/Mustafa1908/cv-application/assets/148060283/cefee662-8d2a-424b-b8b4-93b5653408af">
+</br></br><img src="https://github.com/Mustafa1908/cv-application/assets/148060283/bfd34751-8723-472c-8d8f-d457bd836b49">
+
 <h2>How It's Made:</h2>
 <b>Tech used:</b> HTML, CSS, JavaScript, React
 </br></br>I created most of my Html elements using react props, I created multiple css files for the components. The Logic 
