@@ -1,3 +1,5 @@
+import "../styles/Header.css";
+
 export default function Header() {
   function printCvPage() {
     window.print();

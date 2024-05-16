@@ -1,3 +1,5 @@
+import "../styles/Cv.css";
+
 function ThirdHeaderHr({ headerName, headerClass, hrClassName }) {
   return (
     <div className="headerContainer">
@@ -15,7 +17,7 @@ export default function CvSkills() {
   return (
     <>
       <ThirdHeaderHr
-        headerName={"TECHNICAL SKILLS"}
+        headerName={"SKILLS"}
         headerClass={"cvHeader"}
         hrClassName={"skillHeaderLine"}
       />

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/Form.css";
 
 function Input({
   inputText,

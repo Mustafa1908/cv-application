@@ -1,3 +1,5 @@
+import "../styles/Cv.css";
+
 export default function CvBasicInfo() {
   return (
     <>

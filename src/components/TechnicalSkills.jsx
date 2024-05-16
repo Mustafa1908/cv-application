@@ -1,4 +1,6 @@
 import { useState } from "react";
+import "../styles/Form.css";
+
 function Input({ inputText, inputType, inputId, labelClass, placeHolderText }) {
   return (
     <>

@@ -1,3 +1,5 @@
+import "../styles/Cv.css";
+
 function ListItem({
   placeJob,
   placeJobClass,
@@ -12,7 +14,8 @@ function ListItem({
         <li className={placeJobClass}>{placeJob}</li>
         <span className={resultCompagnyClass}>{resultCompagny}</span>
       </div>
-      <span className={durationClass}>{duration}</span>
+
+      <p className={durationClass}>{duration}</p>
     </div>
   );
 }
@@ -30,17 +33,17 @@ export default function CvEducationBackground() {
   return (
     <>
       <ThirdHeaderHr
-        headerName={"EDUCATION BACKGROUND"}
+        headerName={"EDUCATION"}
         headerClass={"cvHeader"}
         hrClassName={"headerLine"}
       />
-      <ul>
+      <ul className="educationList">
         <ListItem
           placeJob={"University of London"}
           placeJobClass={"jobPlaceJobText"}
           resultCompagny={"Ph.D in Philosophy"}
           resultCompagnyClass={"resultCompagnyText"}
-          duration={"Oct 2010-Jan 2015"}
+          duration={"Apr 2010-Aug 2015"}
           durationClass={"durationText"}
           onClass={"durationText"}
         />

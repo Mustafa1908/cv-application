@@ -12,7 +12,7 @@ function ListItem({
         <li className={placeJobClass}>{placeJob}</li>
         <span className={resultCompagnyClass}>{resultCompagny}</span>
       </div>
-      <span className={durationClass}>{duration}</span>
+      <p className={durationClass}>{duration}</p>
     </div>
   );
 }
@@ -26,6 +26,8 @@ function ThirdHeaderHr({ headerName, headerClass, hrClassName }) {
   );
 }
 
+import "../styles/Cv.css";
+
 export default function CvWorkExperience() {
   return (
     <>
@@ -34,14 +36,15 @@ export default function CvWorkExperience() {
         headerClass={"cvHeader"}
         hrClassName={"headerLine"}
       />
-      <ul>
+      <ul className="workExperienceList">
         <ListItem
           placeJob={"Business Analyst"}
           placeJobClass={"jobPlaceJobText"}
           resultCompagny={"Company Inc."}
           resultCompagnyClass={"resultCompagnyText"}
-          duration={"Nov 2015-Jan 2020"}
+          duration={"Jun 2010-Jan 2015"}
           durationClass={"durationText"}
+          onClass={"durationText"}
         />
       </ul>
     </>
