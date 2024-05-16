@@ -38,6 +38,6 @@ header {
 
 .pagePresentationText {
   font-size: var(--step--1);
-  max-width: 80%;
+  width: 80%;
   padding-top: 1rem;
 }
