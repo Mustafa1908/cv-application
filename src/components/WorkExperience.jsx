@@ -1,9 +1,16 @@
 import { useState } from "react";
 
-function Input({ inputText, inputType, inputId, labelId, placeHolderText }) {
+function Input({
+  inputText,
+  inputType,
+  inputId,
+  labelId,
+  placeHolderText,
+  labelClass,
+}) {
   return (
     <>
-      <label id={labelId} htmlFor={inputId}>
+      <label id={labelId} className={labelClass} htmlFor={inputId}>
         {inputText}
       </label>
       <input
@@ -11,7 +18,6 @@ function Input({ inputText, inputType, inputId, labelId, placeHolderText }) {
         name={inputId}
         id={inputId}
         placeholder={placeHolderText}
-        required
       />
     </>
   );
@@ -56,13 +62,12 @@ export default function WorkExperience() {
     [
       "Business Analyst",
       "Company Inc.",
-      "Oct 2010",
+      "Jun 2010",
       "Jan 2015",
-      "2010-10",
+      "2010-06",
       "2015-01",
     ],
   ]);
-
   const [editText, setEditText] = useState([
     ["Business Analyst ", "Company Inc."],
   ]);
@@ -157,6 +162,7 @@ export default function WorkExperience() {
       "Aug",
       "Sep",
       "Oct",
+      "Nov",
       "Dec",
     ];
     let positionName = document.querySelector("#jobName");
@@ -172,20 +178,21 @@ export default function WorkExperience() {
       return;
     }
     let formatedStartingYear =
-      monthNames[startingYear.value.slice(6, 7) - 1] +
+      monthNames[startingYear.value.slice(5, 7) - 1] +
       " " +
       startingYear.value.slice(0, 4);
     let formatedEndYear =
       monthNames[workEndYear.value.slice(6, 7) - 1] +
       " " +
       workEndYear.value.slice(0, 4);
-
-    if (startingYear.value.slice(6, 7) >= 10) {
+    if (startingYear.value.slice(5, 7) >= 10) {
       formatedStartingYear =
         monthNames[startingYear.value.slice(5, 7) - 1] +
         " " +
         startingYear.value.slice(0, 4);
-    } else if (workEndYear.value.slice(6, 7) >= 10) {
+    }
+
+    if (workEndYear.value.slice(5, 7) >= 10) {
       formatedEndYear =
         monthNames[workEndYear.value.slice(5, 7) - 1] +
         " " +
@@ -194,7 +201,6 @@ export default function WorkExperience() {
 
     let workEndYearValue = workEndYear.value;
     if (workEndYearValue.length === 0) {
-      console.log("hey");
       workEndYearValue = "to today";
     }
 
@@ -212,16 +218,27 @@ export default function WorkExperience() {
     if (editWorkState[0] == true) {
       editWorkArray(
         editWorkState[1],
-        positionName.value,
+        positionName.value + " ",
         placeOfWork.value,
         formatedStartingYear,
         formatedEndYear,
         startingYear.value,
-        workEndYear.value
+        workEndYearValue
       );
 
       handleEditWorkState([false]);
       let skillInput = document.querySelector("#userSkill");
+      let educationPlace = document.querySelector("#educationPlace");
+      let educationProgram = document.querySelector("#educationProgram");
+      let educationStartingYear = document.querySelector(
+        "#educationStartingYear"
+      );
+      let graduatingYear = document.querySelector("#graduatingYear");
+
+      educationPlace.value = "";
+      educationProgram.value = "";
+      educationStartingYear.value = "";
+      graduatingYear.value = "";
       skillInput.value = "";
       positionName.value = "";
       placeOfWork.value = "";
@@ -239,18 +256,18 @@ export default function WorkExperience() {
   document.addEventListener("click", function hideEndYearInput(e) {
     const target = e.target.closest("#workSlider");
     let endYearInput = document.querySelector("#workEndYear");
-    let endYearLabel = document.querySelector("#formLabel");
+    let endYearLabel = document.querySelector(".workEndYear");
 
     if (target) {
       if (inputHide === false) {
         endYearInput.className = "workNone";
-        endYearLabel.className = "workNone";
+        endYearLabel.innerText = "";
 
         setInputHide(true);
         document.removeEventListener("click", hideEndYearInput);
       } else {
         endYearInput.className = "";
-        endYearLabel.className = "";
+        endYearLabel.innerText = "End Year:";
 
         setInputHide(false);
         document.removeEventListener("click", hideEndYearInput);
@@ -263,7 +280,7 @@ export default function WorkExperience() {
   }
 
   document.addEventListener("click", function editWorkValueItem(e) {
-    const target = e.target.closest(".skillModifyIcon");
+    const target = e.target.closest(".workModifyIcon");
     if (target) {
       if (editWorkState[0] === true) {
         return;
@@ -279,9 +296,6 @@ export default function WorkExperience() {
       placeOfWork.value = workValue[workIndex][1];
       startingYear.value = workValue[workIndex][4];
       workEndYear.value = workValue[workIndex][5];
-
-      let skillInput = document.querySelector("#userSkill");
-      skillInput.value = "";
 
       setWorkRenderCondition(0);
       handleEditWorkState([true, workIndex]);
@@ -299,15 +313,17 @@ export default function WorkExperience() {
               <p class="skillModifyText">{editValue}</p>
               <div class="editDeleteContainer">
                 <span
-                  class="material-symbols-outlined skillModifyIcon"
+                  class="material-symbols-outlined editIcon workModifyIcon"
                   dataset={index}
                   dataset-index={workValue[index]}
+                  tabindex={0}
                 >
                   edit
                 </span>
                 <span
                   class="material-symbols-outlined skillDeleteIcon"
                   onClick={() => deleteByIndex(index)}
+                  tabindex={0}
                 >
                   delete
                 </span>
@@ -343,6 +359,7 @@ export default function WorkExperience() {
         inputType={"month"}
         inputId={"workEndYear"}
         labelId={"formLabel"}
+        labelClass={"workEndYear"}
       />
       <InputSubmit
         buttonText={"Submit education background"}

@@ -12,7 +12,6 @@ function Input({ inputText, inputType, inputId, labelClass, placeHolderText }) {
         name={inputId}
         id={inputId}
         placeholder={placeHolderText}
-        required
       />{" "}
     </>
   );
@@ -56,7 +55,7 @@ export default function TechnicalSkills() {
       return oldValues.filter((_, i) => i !== index);
     });
   };
-  console.log(renderCondition);
+
   if (inputValue.length >= renderCondition) {
     let skillContainer = document.querySelector(".skillContainer");
     skillContainer.innerHTML = "";
@@ -80,7 +79,6 @@ export default function TechnicalSkills() {
     if (editState[0] == true) {
       inputValue[editState[1]] = skillValue.value;
       handleEditState([false]);
-      skillValue.placeholder = "Html";
       skillValue.value = "";
       return;
     }
@@ -93,10 +91,6 @@ export default function TechnicalSkills() {
     setEditState(trueFalse);
   }
 
-  function handleRenderState(newCondition) {
-    setRenderCondition(newCondition);
-  }
-
   document.addEventListener("click", function editInputValueItem(e) {
     const target = e.target.closest(".skillModifyIcon");
     if (target) {
@@ -107,6 +101,9 @@ export default function TechnicalSkills() {
       let skillIndex = target.getAttribute("dataset");
       let skillText = target.getAttribute("dataset-index");
       let skillInputField = document.querySelector("#userSkill");
+      if (inputValue.includes(skillText) === false) {
+        skillText = "";
+      }
       skillInputField.value = skillText;
       setRenderCondition(0);
       handleEditState([true, skillIndex]);
@@ -128,15 +125,17 @@ export default function TechnicalSkills() {
               <p class="skillModifyText">{inputText}</p>
               <div class="editDeleteContainer">
                 <span
-                  class="material-symbols-outlined skillModifyIcon"
+                  class="material-symbols-outlined editIcon skillModifyIcon"
                   dataset={index}
                   dataset-index={inputValue[index]}
+                  tabindex={0}
                 >
                   edit
                 </span>
                 <span
                   class="material-symbols-outlined skillDeleteIcon"
                   onClick={() => deleteByIndex(index)}
+                  tabindex={0}
                 >
                   delete
                 </span>
