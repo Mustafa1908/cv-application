@@ -67,7 +67,7 @@ h3 {
 
   .leftSidePage {
     max-width: 43%;
-    max-height: 64rem;
+    max-height: 105rem;
     overflow: scroll;
     overflow-x: hidden;
     scrollbar-color: #475569;
@@ -78,11 +78,17 @@ h3 {
     display: flex;
     justify-content: center;
     max-width: 57%;
-    max-height: 64rem;
+    max-height: 105rem;
     background-color: #d4d4d8;
   }
 
   .skill-container {
     padding-left: 10.2rem;
+  }
+}
+
+@media print {
+  .leftSidePage {
+    display: none;
   }
 }
