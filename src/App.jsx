@@ -10,9 +10,6 @@ import CvWorkExperience from "./components/CvWorkExperience";
 import CvContact from "./components/CvContact";
 import CvSkills from "./components/CvSkills";
 import "./styles/styles.css";
-import "./styles/Header.css";
-import "./styles/Form.css";
-import "./styles/Cv.css";
 
 function App() {
   return (
