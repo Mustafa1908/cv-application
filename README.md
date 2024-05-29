@@ -16,6 +16,6 @@ A Cv Application that allow you to build a personal cv.
   <li>Learned how to print a specific page when clicking on a print icon</li>
 </ul>
 <h2>More Projects</h2>
-<p>Here is a link to my next project: <a href="https://github.com/Mustafa1908/memory-card">Memory Card</a></p>
+<p>Here is a link to my next project: <a href="https://github.com/Mustafa1908/memory-card" target="blank">Memory Card</a></p>
 
 
