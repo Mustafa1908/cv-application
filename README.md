@@ -1,6 +1,6 @@
 <h1>Cv Application</h1>
 A Cv Application that allow you to build a personal cv.
-</br></br>Live Preview: <a href="https://cv-application-dusky-theta.vercel.app" target="blank">https://cv-application-dusky-theta.vercel.app" target="blank</a>
+</br></br>Live Preview: <a href="https://cv-application-dusky-theta.vercel.app" target="_blank">https://cv-application-dusky-theta.vercel.app" target="blank</a>
 </br></br><img src="https://github.com/Mustafa1908/cv-application/assets/148060283/bfd34751-8723-472c-8d8f-d457bd836b49">
 <h2>Features</h2>
 <ul>
@@ -16,6 +16,6 @@ A Cv Application that allow you to build a personal cv.
   <li>Learned how to print a specific page when clicking on a print icon</li>
 </ul>
 <h2>More Projects</h2>
-<p>Here is a link to my next project: <a href="https://github.com/Mustafa1908/memory-card" target="blank">Memory Card</a></p>
+<p>Here is a link to my next project: <a href="https://github.com/Mustafa1908/memory-card" target="_blank">Memory Card</a></p>
 
 
