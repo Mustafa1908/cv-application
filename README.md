@@ -1,6 +1,6 @@
 <h1>Cv Application</h1>
 A Cv Application that allow you to build a personal cv.
-</br></br><b>Live Preview: https://cv-application-dusky-theta.vercel.app/</b>
+</br></br>Live Preview: <a href="https://cv-application-dusky-theta.vercel.app" target="blank">https://cv-application-dusky-theta.vercel.app" target="blank</a>
 </br></br><img src="https://github.com/Mustafa1908/cv-application/assets/148060283/bfd34751-8723-472c-8d8f-d457bd836b49">
 <h2>Features</h2>
 <ul>
